@@ -16,8 +16,8 @@ class Hero:
         self.name = name
         self.deaths = 0
         self.kills = 0
-        self.starting_health = starting_health
-        self.current_health = starting_health
+        self.starting_health = int(starting_health)
+        self.current_health = int(starting_health)
         self.abilities = list()
         self.armors = list()
 
@@ -82,6 +82,7 @@ class Hero:
         #     return
         
         # Annouce Battle
+        print('-------------------')
         print(f'{self.name} vs {opponent.name}')
         print('------Battle!------')
 

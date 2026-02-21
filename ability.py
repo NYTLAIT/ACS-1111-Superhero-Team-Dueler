@@ -7,7 +7,7 @@ class Ability:
         method as instance variables.
         '''
         self.name = name
-        self.max_damage = max_damage
+        self.max_damage = int(max_damage)
 
     def attack(self):
         ''' Return a value between 0 and the value set by self.max_damage.'''

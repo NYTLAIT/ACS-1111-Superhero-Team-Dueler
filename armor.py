@@ -8,7 +8,7 @@ class Armor:
         max_block: Integer
         '''
         self.name = name
-        self.max_block = max_block
+        self.max_block = int(max_block)
 
     def block(self):
         ''' Return a value between 0 and the value set by self.block.'''
