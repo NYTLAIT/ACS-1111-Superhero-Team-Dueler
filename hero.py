@@ -14,10 +14,13 @@ class Hero:
         armors: List
         '''
         self.name = name
+        self.deaths = 0
+        self.kills = 0
         self.starting_health = starting_health
         self.current_health = starting_health
         self.abilities = list()
         self.armors = list()
+
         
     def add_ability(self, ability):
         ''' 
@@ -73,10 +76,10 @@ class Hero:
         ''' 
         Current Hero will take turns fighting the opponent hero passed in.
         '''
-        # Check if Abilities Exist
-        if not self.abilities or not opponent.abilities:
-            print('Fight cancelled: a hero has unsatisfactory abilities list')
-            return
+        # # Check if Abilities Exist
+        # if not self.abilities or not opponent.abilities:
+        #     print('Fight cancelled: a hero has unsatisfactory abilities list')
+        #     return
         
         # Annouce Battle
         print(f'{self.name} vs {opponent.name}')
@@ -104,11 +107,24 @@ class Hero:
         
         # Announce Winner
         if self.is_alive():
+            self.add_kill(1)
+            opponent.add_death(1)
             print(f'{opponent.name} goes down!')
             print(f'{self.name} wins!')
         else:
+            self.add_death(1)
+            opponent.add_death(1)
             print(f'{self.name} goes down!')
             print(f'{opponent.name} wins!')
+
+
+    def add_kill(self, num_kills):
+        ''' Update self.kills by num_kills amount'''
+        self.kills += num_kills
+
+    def add_death(self, num_deaths):
+        ''' Update deaths with num_deaths'''
+        self.deaths += num_deaths
 
 if __name__ == "__main__":
     # If you run this file from the terminal
